@@ -1,0 +1,45 @@
+name: Winsta CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+    runs-on: windows-latest 
+
+    env:
+      PROJECT_PATH: WinstaNext.sln
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '5.0.x'
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.3.1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+      with:
+        nuget-version: "latest"
+      
+    - name: Setup Windows SDK
+      uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.6
+      with:
+        sdk-version: 18362
+
+    - name: Restore nuget packages
+      run: nuget restore ${{ env.PROJECT_PATH }}
+    
+    - name: Build
+      run: msbuild ${{ env.PROJECT_PATH }} /p:Platform=x86 /p:Configuration=Debug /p:AppxPackageSigningEnabled=false /t:Rebuild /restore
