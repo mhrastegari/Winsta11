@@ -32,9 +32,6 @@ jobs:
       uses: NuGet/setup-nuget@v1.2.0
       with:
         nuget-version: "latest"
-        
-    - name: Install Instagram Api Sharp
-      run: dotnet add NotificationHandler/NotificationHandler.csproj package InstagramApiSharp
       
     - name: Setup Windows SDK
       uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.6
@@ -43,6 +40,9 @@ jobs:
 
     - name: Restore nuget packages
       run: nuget restore ${{ env.PROJECT_PATH }}
+        
+    - name: Install Instagram Api Sharp
+      run: dotnet add NotificationHandler/NotificationHandler.csproj package InstagramApiSharp
     
     - name: Build
       run: msbuild ${{ env.PROJECT_PATH }} /p:Platform=x86 /p:Configuration=Debug /p:AppxPackageSigningEnabled=false /t:Rebuild /restore
