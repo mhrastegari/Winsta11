@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32113.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinstaNext", "WinstaNext\WinstaNext.csproj", "{B4747637-F8EB-49AD-9D22-1BF10C0E6B3A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstagramApiSharp.UWP", "..\InstagramApiSharpMine\src\InstagramApiSharp\InstagramApiSharp.UWP.csproj", "{ECC0DEFB-3034-44C2-A4B6-AA443F07D942}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinstaBackgroundHelpers", "WinstaBackgroundHelpers\WinstaBackgroundHelpers.csproj", "{8ACDB63F-98AA-4DE6-95C5-C2D96F098CFA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrift", "Thrift\Thrift.csproj", "{4421EC95-5CF6-4225-AA81-1FF3748FD5F5}"
