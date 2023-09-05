@@ -20,10 +20,10 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Setup .NET Core SDK
+    - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '5.0.x'
+        dotnet-version: '7.x'
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.3.1
